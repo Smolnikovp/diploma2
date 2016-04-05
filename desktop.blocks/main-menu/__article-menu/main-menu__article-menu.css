@@ -1,0 +1,44 @@
+.main-menu__article-menu{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 35px;
+    width: 160px;
+    background-color: #333333;
+}
+
+.main-menu__article-menu .menu{
+    width: 160px;
+    padding: 15px 0;
+}
+
+.main-menu__article-menu .menu *[class*='fa-icon']:after,
+.main-menu__article-menu .menu *[class*='fa-icon']:before{
+    font-size: 18px;
+}
+
+.main-menu__article-menu .menu .menu__menu-item{
+    height: 35px;
+    line-height: 15px;
+}
+
+.main-menu__article-menu .menu .link{
+    display: block;
+    padding: 10px 0 10px 15px;
+    width: 90%;
+}
+
+.main-menu__article-menu .menu .link_hovered{
+    background-color: #d3d3d3;
+    color: #000;
+}
+
+.main-menu__article-menu .menu .link_pressed,
+.main-menu__article-menu .menu .link_focused{
+    background-color: dodgerblue;
+    color: #fff;
+}
+
+.main-menu__article-menu .menu .link_fa-icon_file:before{
+    font-size: 15px;
+}

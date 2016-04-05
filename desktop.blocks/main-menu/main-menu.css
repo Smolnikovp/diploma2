@@ -1,0 +1,10 @@
+.main-menu .text,
+.main-menu .link{
+    line-height: 17px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-menu .link_hovered{
+    cursor: pointer;
+}
