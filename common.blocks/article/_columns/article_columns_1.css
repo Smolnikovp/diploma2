@@ -1,8 +1,0 @@
-.article.article_columns_2{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.article.article_columns_2 > .wrap{
-    flex: 1 1 500px;
-}

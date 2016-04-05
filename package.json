@@ -10,6 +10,7 @@
     "node": ">=0.10"
   },
   "dependencies": {
+    "bem-xjst": "^6.2.0",
     "bower": "^1.6.5"
   },
   "devDependencies": {

@@ -12,10 +12,7 @@ module.exports = {
     scripts: [{ elem : 'js', url : 'index.min.js' }],
     content : [
         {
-            block: 'main-menu'
-        },
-        {
-            block: 'article'
+            block: 'editor'
         }
     ]
 };
