@@ -7,7 +7,7 @@ module.exports = {
         { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
         { elem: 'js', url: 'index.bemhtml.js'},
         { elem : 'css', url : 'index.min.css' },
-        { block: 'font-awesome'}
+        { block: 'font-awesome' }
     ],
     scripts: [{ elem : 'js', url : 'index.min.js' }],
     content : [

@@ -1,0 +1,24 @@
+.news-1{
+    width: 50%;
+    border: 1px solid #00bfff;
+    font-size: 16px;
+    margin: 20px 0;
+    padding: 10px 20px;
+    text-align: justify;
+}
+
+.news-1 h2{
+    margin: 0 0 15px 15px;
+    color: #0000FF;
+}
+
+.news-1 .link{
+    display: block;
+    color: #6e6e6e;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.news-1 .link_hovered{
+    color: #00bfff;
+}

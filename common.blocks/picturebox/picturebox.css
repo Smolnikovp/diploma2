@@ -1,0 +1,20 @@
+.picturebox{
+    margin: 10px 0;
+    max-width: 650px;
+    border: 1px solid #a7a7a7;
+    background-color: #dbdbdb;
+}
+
+.picturebox__heading{
+    padding: 0 20px;
+}
+
+.picturebox__body{
+    padding: 10px 20px;
+    text-indent: 10px;
+}
+
+.picturebox__body .link{
+    display: inline-block;
+    color: #00bfff;
+}

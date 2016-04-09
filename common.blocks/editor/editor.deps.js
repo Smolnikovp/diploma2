@@ -1,5 +1,6 @@
 ({
     mustDeps: [
-        { block: 'button'}
+        { block: 'button' },
+        { block: 'column' }
     ]
 })

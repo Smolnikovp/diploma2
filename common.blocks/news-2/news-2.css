@@ -1,0 +1,34 @@
+.news-2{
+    width: 25%;
+}
+
+.news-2 h2{
+    padding: 10px 20px;
+    margin: 0;
+    color: #003ccc;
+    background: linear-gradient(to bottom, #f0f0f0, #888888);
+}
+
+.news-2__body{
+    border: 1px solid #a7a7a7;
+}
+
+.news-2__body .link{
+    display: block;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.news-2__body .link_hovered{
+    color: #00bfff;
+}
+
+.news-2__body .row{
+    padding: 5px 20px;
+    border-bottom: 1px dashed #a7a7a7;
+}
+
+.news-2__body .row:last-child{
+    border: none;
+}

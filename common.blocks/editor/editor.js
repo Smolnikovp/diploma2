@@ -7,7 +7,7 @@ modules.define('editor', ['i-bem__dom'], function(provide, BEMDOM) {
                     inited:function () {
                         this.__self.content = this.__self._getContent();
                         this.__self.baseDom = this.domElem;
-                        this.__self._normalizeProd();
+                        this.__self._normalize();
                         this.__self.render();
                     }
                 }
