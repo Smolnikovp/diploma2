@@ -4,12 +4,10 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
         {
             onSetMod: {
                 js: {
-                    inited:function () {
-                        this.__self.content = this.__self._getContent();
-                        this.__self.baseDom = this.domElem;
-                        this.__self.id = this.params.id;
-                        this.__self._normalize();
-                        this.__self.render();
+                    inited : function () {
+                        this.blocks = this.__self._getContent(this.params.id);
+                        this.__self._normalize(this.params.id, this.blocks);
+                        this.__self.render(this.domElem);
                     }
                 }
             }
@@ -22,21 +20,21 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
                 var _this = this;
 
                 this.liveInitOnBlockInsideEvent('click', 'button', function(e, data) {
-                    _this.addBlock(e.target.params.column, e.target.params.block)
+                    _this.addBlock(e.target.params.column, e.target.params.block, this)
                 });
 
                 return false
             },
 
-            render: function () {
-                BEMDOM.update(this.baseDom,
+            render: function (dom) {
+                BEMDOM.update(dom,
                     BEMHTML.apply(this.normalizedContent)
                 );
             },
 
-            addBlock: function (colId, b) {
-                var before = this.content.slice(0, b),
-                    after = this.content.slice(b);
+            addBlock: function (colId, b, _this) {
+                var before = _this.blocks.slice(0, b),
+                    after = _this.blocks.slice(b);
 
                 before.push(
                     {
@@ -45,21 +43,21 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
                     }
                 );
 
-                this.content = before.concat(after);
+                _this.blocks = before.concat(after);
 
-                this._setContent(this.content);
-                this._normalize();
-                this.render();
+                this._setContent(_this.blocks, _this.params.id);
+                this._normalize(_this.params.id, _this.blocks);
+                this.render(_this.domElem);
             },
 
-            _normalize: function () {
+            _normalize: function (id, content) {
                 var _this = this;
 
                 _this.normalizedContent = [];
 
-                _this.normalizedContent.push(_this._getButton(0));
-                _this.content.forEach(function (block, blockId) {
-                    _this.normalizedContent.push(block, _this._getButton(blockId + 1));
+                _this.normalizedContent.push(_this._getButton(id, 0));
+                content.forEach(function (block, blockId) {
+                    _this.normalizedContent.push(block, _this._getButton(id, blockId + 1));
                 });
             },
 
@@ -77,23 +75,24 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
                 });
             },
 
-            _getButton: function (block) {
+            _getButton: function (id, block) {
                 return {
                     block: 'button',
                     text: '+',
-                    js: {column: this.id, 'block': block}
+                    js: {column: id, 'block': block}
                 }
             },
 
-            _getContent: function () {
-                if(localStorage.getItem('test')){
-                    return JSON.parse(localStorage.getItem('test'));
+            _getContent: function (id) {
+                var column = localStorage.getItem('column_' + id);
+                if(column){
+                    return JSON.parse(column);
                 }
                 return [];
             },
 
-            _setContent: function (content) {
-                localStorage.setItem('test', JSON.stringify(content));
+            _setContent: function (content, id) {
+                localStorage.setItem('column_' + id, JSON.stringify(content));
             }
         })
     );

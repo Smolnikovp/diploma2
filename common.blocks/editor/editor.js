@@ -8,18 +8,32 @@ modules.define('editor', ['i-bem__dom'], function(provide, BEMDOM) {
 
                         BEMDOM.update(this.domElem,
                             BEMHTML.apply(
-                                {
-                                    block: 'column',
-                                    js: {id: 0},
-                                    content: []
-                                }
+                                [
+                                    {
+                                        block: 'column',
+                                        js: {id: 0},
+                                        content: []
+                                    },
+                                    {
+                                        block: 'column',
+                                        js: {id: 1},
+                                        content: []
+                                    },
+                                    {
+                                        block: 'column',
+                                        js: {id: 2},
+                                        content: []
+                                    }
+                                ]
                             )
                         );
                     }
                 }
             }
         },
-        {})
+        {
+
+        })
     );
 
 });
