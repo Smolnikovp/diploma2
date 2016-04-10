@@ -93,6 +93,10 @@ modules.define('editor', ['i-bem__dom'], function(provide, BEMDOM) {
                         {
                             block: 'column',
                             content: []
+                        },
+                        {
+                            block: 'column',
+                            content: []
                         }
                     ]
                 }
