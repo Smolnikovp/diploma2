@@ -6,7 +6,8 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                 js: {
                     inited:function () {
 
-                        this.__self.addButtons(this);
+                        this.__self._getContent();
+                        this.__self._setContent(3);
 
                         BEMDOM.update(this.domElem,
                             BEMHTML.apply(
@@ -20,11 +21,6 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                                         block: 'column',
                                         js: {id: 1},
                                         content: []
-                                    },
-                                    {
-                                        block: 'column',
-                                        js: {id: 2},
-                                        content: []
                                     }
                                 ]
                             )
@@ -34,29 +30,12 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
             }
         },
         {
-            addButtons : function(ctx){
-                var columns,
-                    buttons = [
-                        {
-                            block: 'button',
-                            mods: { add: true },
-                            content: '+'
-                        },
-                        {
-                            block: 'button',
-                            mods: { add: true },
-                            content: '-'
-                        }
-                    ];
+            _getContent: function () {
+                return parseInt(localStorage.getItem('columns') || 1)
+            },
 
-                for (var i = 0; i < localStorage.length; i++){
-                    columns = localStorage.getItem('column_' + i);
-                }
-
-                console.log(buttons);
-
-                BEMDOM.update(ctx,
-                    BEMHTML.apply(buttons))
+            _setContent : function(id){
+                localStorage.setItem('columns', JSON.stringify(id));
             }
         })
     );
