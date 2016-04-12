@@ -1,10 +1,12 @@
-modules.define('editor', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Column) {
 
     provide(BEMDOM.decl(this.name,
         {
             onSetMod: {
                 js: {
                     inited:function () {
+
+                        this.__self.addButtons(this);
 
                         BEMDOM.update(this.domElem,
                             BEMHTML.apply(
@@ -32,7 +34,30 @@ modules.define('editor', ['i-bem__dom'], function(provide, BEMDOM) {
             }
         },
         {
+            addButtons : function(ctx){
+                var columns,
+                    buttons = [
+                        {
+                            block: 'button',
+                            mods: { add: true },
+                            content: '+'
+                        },
+                        {
+                            block: 'button',
+                            mods: { add: true },
+                            content: '-'
+                        }
+                    ];
 
+                for (var i = 0; i < localStorage.length; i++){
+                    columns = localStorage.getItem('column_' + i);
+                }
+
+                console.log(buttons);
+
+                BEMDOM.update(ctx,
+                    BEMHTML.apply(buttons))
+            }
         })
     );
 
