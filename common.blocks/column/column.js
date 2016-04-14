@@ -20,7 +20,7 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
                 var _this = this;
 
                 this.liveInitOnBlockInsideEvent('click', 'button', function(e, data) {
-                    _this.addBlock(e.target.params.column, e.target.params.block, this)
+                    _this.addBlock(e.target.params.column, e.target.params.block, this);
                 });
 
                 return false

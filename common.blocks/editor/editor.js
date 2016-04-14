@@ -6,8 +6,9 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                 js: {
                     inited:function () {
 
-                        this.__self._getContent();
-                        this.__self._setContent(3);
+                        //this.__self._getContent();
+                        //this.__self._setContent(3);
+
 
                         BEMDOM.update(this.domElem,
                             BEMHTML.apply(
@@ -25,11 +26,37 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                                 ]
                             )
                         );
+
+                        this.__self.addContent(this.domElem, 1);
                     }
                 }
             }
         },
         {
+            addContent: function(content, count){
+                var bemhtml = [
+                    {
+                        block: 'button',
+                        content: '+'
+                    },
+                    {
+                        block: 'button',
+                        content: '-'
+                    }
+                ],
+                    column = {
+                        block: 'column',
+                        js: { id : count }
+                    };
+
+                for (var i = 0; i < count; i++){
+                    bemhtml.unshift(column);
+                }
+
+                BEMDOM.update(content,
+                    BEMHTML.apply(bemhtml))
+            },
+
             _getContent: function () {
                 return parseInt(localStorage.getItem('columns') || 1)
             },
