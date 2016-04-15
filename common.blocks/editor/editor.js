@@ -6,9 +6,6 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                 js: {
                     inited:function () {
 
-                        //this.__self._getContent();
-                        //this.__self._setContent(3);
-
                         BEMDOM.update(this.domElem,
                             BEMHTML.apply(
                                 [
@@ -36,7 +33,7 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                 this.liveInitOnBlockInsideEvent('click', 'button', function(e){
                     var columns = this.__self._getColumns();
 
-                    columns += parseInt(e.target.params.action);
+                    columns += e.target.params.action;
 
                     //console.log(columns + ' columns')
 
@@ -59,16 +56,15 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                     });
                 };
 
-                /*не знаю как лучше сделать, чтоб кнопки оставались в конце массива*/
                 bemhtml.push({
-                        block: 'button',
-                        content: '+',
-                        js: { action: 1 }
-                    },
-                    {
                         block: 'button',
                         content: '-',
                         js: { action: -1 }
+                    },
+                    {
+                        block: 'button',
+                        content: '+',
+                        js: { action: 1 }
                     });
 
                 BEMDOM.update(content,

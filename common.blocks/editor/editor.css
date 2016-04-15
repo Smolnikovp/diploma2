@@ -1,4 +1,11 @@
 .editor{
     background-color: #f0f;
-    height: 100px;
+    height: 200px;
+}
+
+.editor > .button{
+    float: right;
+    width: 100px;
+    height: 50px;
+    font-size: 40px;
 }
