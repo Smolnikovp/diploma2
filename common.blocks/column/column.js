@@ -1,4 +1,4 @@
-modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('column', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
 
     provide(BEMDOM.decl(this.name,
         {
@@ -17,8 +17,10 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
             normalizedContent: [],
 
             live : function() {
-                this.liveInitOnBlockInsideEvent('click', 'button', function(e, data) {
-                    this.__self.addBlock(e.target.params.column, e.target.params.block, this);
+                this.liveBindTo('add-button', 'pointerclick', function(e){
+                    var params = $(e.target).bem('button').params;
+
+                    this.__self.addBlock(params.column, params.block, this);
                 });
 
                 return false
@@ -76,6 +78,7 @@ modules.define('column', ['i-bem__dom'], function(provide, BEMDOM) {
             _getButton: function (id, block) {
                 return {
                     block: 'button',
+                    mix: {block: 'column', elem: 'add-button'},
                     text: '+',
                     js: {column: id, 'block': block}
                 }

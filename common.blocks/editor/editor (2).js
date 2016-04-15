@@ -1,4 +1,4 @@
-modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Column) {
 
     provide(BEMDOM.decl(this.name,
         {
@@ -30,14 +30,19 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
         },
         {
             live: function(){
-                this.liveBindTo('action-button', 'pointerclick', function(e){
-                    var columns = this.__self._getColumns(),
-                        params = $(e.target).bem('button').params;
-
-                    columns += params.action;
-
-                    this.__self._setColumns(columns);
-                    this.__self.renderColumns(this.domElem);
+                this.liveBindTo('buttonz', 'pointerclick', function(e){
+                    console.log(e)
+                    console.log(e.target)
+                    console.log(e.target.data)
+                    //console.log(e.currentTarget.params)
+                    //var columns = this.__self._getColumns();
+                    //
+                    //columns += e.target.params.action;
+                    //
+                    ////console.log(columns + ' columns')
+                    //
+                    //this.__self._setColumns(columns);
+                    //this.__self.renderColumns(this.domElem);
                 });
 
                 return false
@@ -57,13 +62,13 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
 
                 bemhtml.push({
                         block: 'button',
-                        mix: {block: 'editor', elem: 'action-button'},
+                        mix: {block: 'editor', elem: 'buttonz'},
                         content: '-',
                         js: { action: -1 }
                     },
                     {
                         block: 'button',
-                        mix: {block: 'editor', elem: 'action-button'},
+                        mix: {block: 'editor', elem: 'buttonz'},
                         content: '+',
                         js: { action: 1 }
                     });
