@@ -27,32 +27,31 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                             )
                         );
 
-                        this.__self.addContent(this.domElem, 1);
+                        this.__self.addContent(this.domElem, 3);
                     }
                 }
             }
         },
         {
             addContent: function(content, count){
-                var bemhtml = [
-                    {
+                var bemhtml = [];
+
+                for (var i = 0; i < count; i++){
+                    bemhtml.push({
+                        block: 'column',
+                        js: { id : i }
+                    });
+                };
+
+                /*е знаю как лучше сделать, чтоб кнопки оставались в конце массива*/
+                bemhtml.push({
                         block: 'button',
                         content: '+'
                     },
                     {
                         block: 'button',
                         content: '-'
-                    }
-                ],
-                    column = {
-                        block: 'column',
-                        js: { id : count }
-                    };
-
-                for (var i = 0; i < count; i++){
-                    bemhtml.unshift(column);
-                }
-
+                    });
                 BEMDOM.update(content,
                     BEMHTML.apply(bemhtml))
             },
