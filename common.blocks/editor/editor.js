@@ -9,7 +9,6 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                         //this.__self._getContent();
                         //this.__self._setContent(3);
 
-
                         BEMDOM.update(this.domElem,
                             BEMHTML.apply(
                                 [
@@ -27,41 +26,62 @@ modules.define('editor', ['i-bem__dom', 'column'], function(provide, BEMDOM, Col
                             )
                         );
 
-                        this.__self.addContent(this.domElem, 3);
+                        this.__self.renderColumns(this.domElem);
                     }
                 }
             }
         },
         {
-            addContent: function(content, count){
-                var bemhtml = [];
+            live: function(){
+                this.liveInitOnBlockInsideEvent('click', 'button', function(e){
+                    var columns = this.__self._getColumns();
 
-                for (var i = 0; i < count; i++){
+                    columns += parseInt(e.target.params.action);
+
+                    //console.log(columns + ' columns')
+
+                    this.__self._setColumns(columns);
+                    this.__self.renderColumns(this.domElem);
+                });
+
+                return false
+            },
+
+            //создание массива с колонками, добавление кнопок
+            renderColumns: function(content){
+                var bemhtml = [],
+                    value = this._getColumns();
+
+                for (var i = 0; i < value; i++){
                     bemhtml.push({
                         block: 'column',
                         js: { id : i }
                     });
                 };
 
-                /*е знаю как лучше сделать, чтоб кнопки оставались в конце массива*/
+                /*не знаю как лучше сделать, чтоб кнопки оставались в конце массива*/
                 bemhtml.push({
                         block: 'button',
-                        content: '+'
+                        content: '+',
+                        js: { action: 1 }
                     },
                     {
                         block: 'button',
-                        content: '-'
+                        content: '-',
+                        js: { action: -1 }
                     });
+
                 BEMDOM.update(content,
                     BEMHTML.apply(bemhtml))
             },
 
-            _getContent: function () {
+            //возвращает контент ячейки columns
+            _getColumns: function () {
                 return parseInt(localStorage.getItem('columns') || 1)
             },
 
-            _setContent : function(id){
-                localStorage.setItem('columns', JSON.stringify(id));
+            _setColumns : function(value){
+                localStorage.setItem('columns', value);
             }
         })
     );
