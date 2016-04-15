@@ -18,7 +18,7 @@ modules.define('column', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
 
             live : function() {
                 this.liveBindTo('add-button', 'pointerclick', function(e){
-                    var params = $(e.target).bem('button').params;
+                    var params = $(e.currentTarget).bem('button').params;
 
                     this.__self.addBlock(params.column, params.block, this);
                 });
@@ -80,7 +80,7 @@ modules.define('column', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
                     block: 'button',
                     mix: {block: 'column', elem: 'add-button'},
                     text: '+',
-                    js: {column: id, 'block': block}
+                    js: {column: id, block: block}
                 }
             },
 

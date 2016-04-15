@@ -32,7 +32,7 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
             live: function(){
                 this.liveBindTo('action-button', 'pointerclick', function(e){
                     var columns = this.__self._getColumns(),
-                        params = $(e.target).bem('button').params;
+                        params = $(e.currentTarget).bem('button').params;
 
                     columns += params.action;
 
