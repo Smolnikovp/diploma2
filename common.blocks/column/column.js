@@ -87,8 +87,33 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                         BEMHTML.apply({
                             block : 'popup',
                             mix : { block : 'test', elem : 'popup' },
-                            mods : { target : 'position', theme : 'islands' },
-                            content : 'the popup'
+                            mods : { target : 'position', theme : 'islands', autoclosable: true },
+                            content : [
+                                {
+                                    block : 'select',
+                                    mods : { mode : 'radio-check', theme : 'islands', size : 'm' },
+                                    name : 'select3',
+                                    val : 2,
+                                    text : '—',
+                                    options : [
+                                        { val : 1, text : 'блок 1' },
+                                        { val : 2, text : 'блок 2' },
+                                        { val : 3, text : 'блок 3' }
+                                    ]
+                                },
+                                {
+                                    block: 'preview'
+                                },
+                                {
+                                    block: 'button',
+                                    content: 'OK'
+                                },
+                                {
+                                    block: 'button',
+                                    mods: { cancel: true },
+                                    content: 'Cancel'
+                                }
+                            ]
                         })
                     );
                 }
