@@ -4,6 +4,7 @@
 
 .popup .select .button{
     border-radius: 0;
+    margin: 0;
 }
 
 .popup .select .button_focused-hard{
