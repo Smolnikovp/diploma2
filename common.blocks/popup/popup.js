@@ -1,28 +1,29 @@
-modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('popup', ['i-bem__dom', 'column'], function(provide, BEMDOM, Column) {
 
     provide(BEMDOM.decl(this.name,
         {
-            onSetMod : {
-                js : {
-                    inited : function(){
-                        var button = this.findBlockInside('button_cancel');
-                        var select = this.findBlockInside('select');
+            onSetMod :
+                {
+                    js: {
+                        inited: function () {
+                            var button_cancel = this.findBlockInside('button_cancel'),
+                                button_ok = this.findBlockInside('button_good'),
+                                _this = this;
 
-                        console.log(button);
-                        console.log(select);
-
-                        //button.bindTo('pointerclick', function(){
-                        //    console.log(1)
-                        //})
+                            button_cancel.bindTo('pointerclick', function () {
+                                _this.setMod('visible', false);
+                            })
+                        }
                     }
                 }
-            }
+                //{
+                //    visible : function(){
+                //        var select = this.findBlockInside('select');
+                //    }
+                //}
+
         },
         {
-            //live : function(){
-            //    this.liveBindTo('button', 'pointerclick', function(){
-            //        console.log(1)
-            //    })
-            //}
+
         }));
 });

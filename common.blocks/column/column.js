@@ -92,8 +92,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                                 {
                                     block : 'select',
                                     mods : { mode : 'radio-check', theme : 'islands', size : 'm' },
-                                    name : 'select3',
-                                    val : 2,
+                                    val : 1,
                                     text : '—',
                                     options : [
                                         { val : 1, text : 'блок 1' },
@@ -106,6 +105,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                                 },
                                 {
                                     block: 'button',
+                                    mods: { good: true },
                                     content: 'OK'
                                 },
                                 {
