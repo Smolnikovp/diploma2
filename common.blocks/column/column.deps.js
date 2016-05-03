@@ -1,5 +1,5 @@
 ({
     mustDeps: [
-        { block: 'popup', mods : { theme : 'islands', autoclosable: true, target : 'position' } }
+        { block: 'popup', mods : { 'add-block': true, theme : 'islands', autoclosable: true, target : 'position' } }
     ]
 })

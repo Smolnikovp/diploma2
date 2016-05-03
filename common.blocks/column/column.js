@@ -82,16 +82,13 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
 
             _showPopup: function (button) {
                 if (!this.__self._popup) {
-                    this.__self._popup = BEMDOM.append(
-                        this.findBlockOutside('page').domElem,
-                        BEMHTML.apply({
+                    this.__self._popup = BEMDOM.init($(BEMHTML.apply({
                             block : 'popup',
                             mix : { block : 'test', elem : 'popup' },
-                            mods : { target : 'position', theme : 'islands', autoclosable: true },
+                            mods : { 'add-block': true, target : 'position', theme : 'islands', autoclosable: true },
                             content : [
                                 {
                                     block : 'select',
-                                    mix: {elem: 'test'},
                                     mods : { mode : 'radio-check', theme : 'islands', size : 'm' },
                                     val : 1,
                                     text : '—',
@@ -106,30 +103,26 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                                 },
                                 {
                                     block: 'button',
-                                    mods: { good: true },
+                                    mix: { elem: 'good' },
                                     content: 'OK'
                                 },
                                 {
                                     block: 'button',
-                                    mods: { cancel: true },
+                                    mix: { elem: 'cancel' },
                                     content: 'Cancel'
                                 }
                             ]
-                        })
-                    );
+                        })).appendTo('body'))
                 }
 
                 var popup = this.__self._popup.bem('popup');
                 popup.setPosition(Math.random() * 400, 100);
                 popup.setMod('visible', true);
+
                 popup.domElem.one('close', function(e, info){
                     console.log('------------------------------------');
                     console.log(info);
                 });
-
-                //setTimeout(function(){
-                //    popup.setMod('visible', false);
-                //},1000)
             },
 
             _getButton: function (id, block) {
