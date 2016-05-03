@@ -14,13 +14,14 @@ modules.define('popup', ['i-bem__dom', 'column'], function(provide, BEMDOM, Colu
                                 _this.setMod('visible', false);
                             })
                         }
+                    },
+                    visible: {
+                        '': function () {
+                            console.log(this.findBlockInside('select__test'));
+                            this.domElem.trigger('close', 'test Z')
+                        }
                     }
                 }
-                //{
-                //    visible : function(){
-                //        var select = this.findBlockInside('select');
-                //    }
-                //}
 
         },
         {

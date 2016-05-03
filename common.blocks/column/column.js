@@ -91,6 +91,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                             content : [
                                 {
                                     block : 'select',
+                                    mix: {elem: 'test'},
                                     mods : { mode : 'radio-check', theme : 'islands', size : 'm' },
                                     val : 1,
                                     text : '—',
@@ -121,6 +122,10 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 var popup = this.__self._popup.bem('popup');
                 popup.setPosition(Math.random() * 400, 100);
                 popup.setMod('visible', true);
+                popup.domElem.one('close', function(e, info){
+                    console.log('------------------------------------');
+                    console.log(info);
+                });
 
                 //setTimeout(function(){
                 //    popup.setMod('visible', false);
