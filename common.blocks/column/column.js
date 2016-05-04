@@ -94,18 +94,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 popup.setPosition(Math.random() * 400, 100);
                 popup.setMod('visible', true);
 
-                popup.domElem.one('close', function(e, info){
-                    switch (info){
-                        case 1: addBlockName = "latest news";
-                            break;
-                        case 2: addBlockName = "hey";
-                            break;
-                    }
-
-
-                    console.log('------------------------------------');
-                    console.log(addBlockName);
-                });
+                popup.domElem.one('close');
             },
 
             _getButton: function (id, block) {
