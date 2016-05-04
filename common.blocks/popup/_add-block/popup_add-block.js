@@ -17,9 +17,11 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                             });
 
                             button_ok.bindTo('pointerclick', function () {
+                                var blockNum = _this.findBlockInside({ blockName : 'select'}).getVal();
+
                                 _this.setMod('visible', false);
 
-                                _this.domElem.trigger('close', _this.findBlockInside({ blockName : 'select'}).getVal());
+                                _this.domElem.trigger('close', blockNum);
                             });
                         }
                     }

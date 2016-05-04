@@ -1,38 +1,38 @@
-.popup .menu-item_hovered{
+.popup_add-block .menu-item_hovered{
     background-color: #00bfff;
 }
 
-.popup .select .button{
+.popup_add-block .select .button{
     border-radius: 0;
     margin: 0;
 }
 
-.popup .select .button_focused-hard{
+.popup_add-block .select .button_focused-hard{
     box-shadow: none;
 }
 
-.popup .select .button:before{
+.popup_add-block .select .button:before{
     background-color: lightblue;
 }
 
-.popup .select,
-.popup .preview{
+.popup_add-block .select,
+.popup_add-block .preview{
     width: 200px;
 }
 
-.popup .preview{
+.popup_add-block .preview{
     height: 300px;
     border-top: 1px solid #d3d3d3;
 }
 
-.popup .button{
+.popup_add-block .button{
     border-radius: 5px;
     outline: none;
     background-color: #d3d3d3;
-    font: 16px normal, "Comic Sans MS", sans-serif;
+    font-size: 16px;
     margin: 5px;
 }
 
-.popup .button_cancel{
+.popup_add-block .button__cancel{
     float: right;
 }

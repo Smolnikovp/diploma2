@@ -85,43 +85,26 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                     this.__self._popup = BEMDOM.init($(BEMHTML.apply({
                             block : 'popup',
                             mix : { block : 'test', elem : 'popup' },
-                            mods : { 'add-block': true, target : 'position', theme : 'islands', autoclosable: true },
-                            content : [
-                                {
-                                    block : 'select',
-                                    mods : { mode : 'radio-check', theme : 'islands', size : 'm' },
-                                    val : 1,
-                                    text : '—',
-                                    options : [
-                                        { val : 1, text : 'блок 1' },
-                                        { val : 2, text : 'блок 2' },
-                                        { val : 3, text : 'блок 3' }
-                                    ]
-                                },
-                                {
-                                    block: 'preview'
-                                },
-                                {
-                                    block: 'button',
-                                    mix: { elem: 'good' },
-                                    content: 'OK'
-                                },
-                                {
-                                    block: 'button',
-                                    mix: { elem: 'cancel' },
-                                    content: 'Cancel'
-                                }
-                            ]
+                            mods : { 'add-block': true, target : 'position', theme : 'islands', autoclosable: true }
                         })).appendTo('body'))
                 }
 
-                var popup = this.__self._popup.bem('popup');
+                var popup = this.__self._popup.bem('popup'),
+                    addBlockName;
                 popup.setPosition(Math.random() * 400, 100);
                 popup.setMod('visible', true);
 
                 popup.domElem.one('close', function(e, info){
+                    switch (info){
+                        case 1: addBlockName = "latest news";
+                            break;
+                        case 2: addBlockName = "hey";
+                            break;
+                    }
+
+
                     console.log('------------------------------------');
-                    console.log(info);
+                    console.log(addBlockName);
                 });
             },
 
