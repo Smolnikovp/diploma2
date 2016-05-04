@@ -17,16 +17,33 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                             });
 
                             button_ok.bindTo('pointerclick', function () {
-                                _this.domElem.trigger('close', _this.findBlockInside({ blockName : 'select'}).getVal());
-
+                                _this.domElem.trigger('close', _this.findBlockInside({ blockName : 'select' }).getVal());
                                 _this.setMod('visible', false);
                             });
+
+                            //_this.findBlockInside({ blockName : 'select' }).setVal([
+                            //    { val : 1, text : '1' },
+                            //    { val : 2, text : '2' },
+                            //    { val : 3, text : '3' }
+                            //]);
+
+                            var select = _this.findBlockInside({ blockName : 'select' });
+
+                            select.ctx.options = [
+                                    { val : 1, text : '1' },
+                                    { val : 2, text : '2' },
+                                    { val : 3, text : '3' }
+                            ]
+                        }
+                    },
+
+                    visible : {
+                        '' : function(){
+                            this.__base.apply(this, arguments);
+                            this.domElem.trigger('close');
                         }
                     }
                 }
-
         },
-        {
-
-        }));
+        {}));
 });

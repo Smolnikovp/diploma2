@@ -27,6 +27,8 @@
 
 .popup_add-block .button{
     border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
     outline: none;
     background-color: #d3d3d3;
     font-size: 16px;
