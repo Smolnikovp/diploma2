@@ -8,32 +8,33 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                         inited: function () {
                             this.__base.apply(this, arguments);
 
-                            var button_cancel = this.findBlockInside('button__cancel'),
+                            var _this = this,
+                                button_cancel = this.findBlockInside('button__cancel'),
                                 button_ok = this.findBlockInside('button__good'),
-                                _this = this;
+                                select = _this.findBlockInside({ blockName : 'select' });
 
                             button_cancel.bindTo('pointerclick', function () {
                                 _this.setMod('visible', false);
                             });
 
                             button_ok.bindTo('pointerclick', function () {
-                                _this.domElem.trigger('close', _this.findBlockInside({ blockName : 'select' }).getVal());
+                                var option = select.params.options[select.getVal() - 1];
+                                if(option && option.code){
+                                    _this.domElem.trigger('close', option.code);
+                                }
                                 _this.setMod('visible', false);
                             });
 
-                            //_this.findBlockInside({ blockName : 'select' }).setVal([
-                            //    { val : 1, text : '1' },
-                            //    { val : 2, text : '2' },
-                            //    { val : 3, text : '3' }
-                            //]);
+                            select.on('change', function(e){
+                                var option = this.params.options[this.getVal() - 1];
 
-                            var select = _this.findBlockInside({ blockName : 'select' });
-
-                            select.ctx.options = [
-                                    { val : 1, text : '1' },
-                                    { val : 2, text : '2' },
-                                    { val : 3, text : '3' }
-                            ]
+                                if(option && option.code){
+                                    BEMDOM.update(
+                                        _this.findBlockInside('preview').domElem,
+                                        BEMHTML.apply(option.code)
+                                    );
+                                }
+                            });
                         }
                     },
 

@@ -19,13 +19,19 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
 
             live : function() {
                 this.liveBindTo('add-button', 'pointerclick', function(e){
-                    var target = $(e.currentTarget),
+                    var _this = this,
+                        target = $(e.currentTarget),
                         targetBem = target.bem('button'),
                         params = targetBem.params;
 
-                    this.__self.addBlock(params.column, params.block, this);
 
-                    this.__self._showPopup.call(this, targetBem);
+
+                    this.__self._showPopup.call(this, function(block){
+                        if(block){
+                            console.log(block)
+                            _this.__self.addBlock(params.column, params.block, _this, block);
+                        }
+                    });
                 });
 
                 return false
@@ -37,16 +43,11 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 );
             },
 
-            addBlock: function (colId, b, _this) {
+            addBlock: function (colId, b, _this, block) {
                 var before = _this.blocks.slice(0, b),
                     after = _this.blocks.slice(b);
 
-                before.push(
-                    {
-                        block: 'new-block',
-                        content: Math.round(Math.random() * 100)
-                    }
-                );
+                before.push(block);
 
                 _this.blocks = before.concat(after);
 
@@ -80,7 +81,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 });
             },
 
-            _showPopup: function (button) {
+            _showPopup: function (callback) {
                 if (!this.__self._popup) {
                     this.__self._popup = BEMDOM.init($(BEMHTML.apply({
                             block : 'popup',
@@ -95,15 +96,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 popup.setMod('visible', true);
 
                 popup.domElem.one('close', function(e, info){
-                    switch (info){
-                        case 1: addBlockName = "latest news";
-                            break;
-                        case 2: addBlockName = "hey";
-                            break;
-                    }
-
-                    console.log('------------------------------------');
-                    console.log(addBlockName);
+                    callback(info);
                 });
             },
 
