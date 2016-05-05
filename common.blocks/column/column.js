@@ -28,10 +28,19 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
 
                     this.__self._showPopup.call(this, function(block){
                         if(block){
-                            console.log(block)
-                            _this.__self.addBlock(params.column, params.block, _this, block);
+                            _this.__self.addRemoveBlock(1, params.column, params.block, _this, block);
                         }
                     });
+                });
+
+                this.liveBindTo('remove-button', 'pointerclick', function(e){
+                    var _this = this,
+                        target = $(e.currentTarget),
+                        targetBem = target.bem('button'),
+                        params = targetBem.params;
+
+                    _this.__self.addRemoveBlock(0, params.column, params.block, _this);
+
                 });
 
                 return false
@@ -43,11 +52,13 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 );
             },
 
-            addBlock: function (colId, b, _this, block) {
-                var before = _this.blocks.slice(0, b),
+            addRemoveBlock: function (add, colId, b, _this, block) {
+                var before = _this.blocks.slice(0, b - (add ? 0 : 1)),
                     after = _this.blocks.slice(b);
 
-                before.push(block);
+                if (add) {
+                    before.push(block);
+                }
 
                 _this.blocks = before.concat(after);
 
@@ -61,9 +72,19 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
 
                 _this._normalizedContent = [];
 
-                _this._normalizedContent.push(_this._getButton(id, 0));
+                _this._normalizedContent.push(_this._getButton(1, id, 0));
                 content.forEach(function (block, blockId) {
-                    _this._normalizedContent.push(block, _this._getButton(id, blockId + 1));
+                    _this._normalizedContent.push(
+                        {
+                            block: 'column',
+                            elem: 'column-wrapper',
+                            content: [
+                                _this._getButton(0, id, blockId + 1),
+                                block
+                            ]
+                        },
+                        _this._getButton(1, id, blockId + 1)
+                    );
                 });
             },
 
@@ -90,8 +111,8 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                         })).appendTo('body'))
                 }
 
-                var popup = this.__self._popup.bem('popup'),
-                    addBlockName;
+                var popup = this.__self._popup.bem('popup');
+
                 popup.setPosition(Math.random() * 400, 100);
                 popup.setMod('visible', true);
 
@@ -100,11 +121,11 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
                 });
             },
 
-            _getButton: function (id, block) {
+            _getButton: function (add, id, block) {
                 return {
                     block: 'button',
-                    mix: {block: 'column', elem: 'add-button'},
-                    text: '+',
+                    mix: {block: 'column', elem: (add ? 'add' : 'remove') + '-button'},
+                    text: (add ? '+' : '-'),
                     js: {column: id, block: block}
                 }
             },
