@@ -4,24 +4,19 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
         {
             onSetMod: {
                 js: {
-                    inited:function () {
+                    inited : function () {
 
-                        BEMDOM.update(this.domElem,
-                            BEMHTML.apply(
-                                [
-                                    {
-                                        block: 'column',
-                                        js: {id: 0},
-                                        content: []
-                                    },
-                                    {
-                                        block: 'column',
-                                        js: {id: 1},
-                                        content: []
-                                    }
-                                ]
-                            )
-                        );
+                        //BEMDOM.update(this.domElem,
+                        //    BEMHTML.apply(
+                        //        [
+                        //            {
+                        //                block: 'column',
+                        //                js: {id: 0},
+                        //                content: []
+                        //            }
+                        //        ]
+                        //    )
+                        //);
 
                         this.__self.renderColumns(this.domElem);
                     }
@@ -48,21 +43,21 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
                 var bemhtml = [],
                     value = this._getColumns();
 
-                for (var i = 0; i < value; i++){
-                    bemhtml.push({
-                        block: 'column',
-                        js: { id : i }
-                    });
+
+                for (var i = 0; i <= value; i++){
+                        bemhtml.push({ block: 'column',  js: { id : i } })
                 };
 
                 bemhtml.push({
                         block: 'button',
+                        mods: { remove : true },
                         mix: {block: 'editor', elem: 'action-button'},
                         content: '-',
                         js: { action: -1 }
                     },
                     {
                         block: 'button',
+                        mods: { add : true },
                         mix: {block: 'editor', elem: 'action-button'},
                         content: '+',
                         js: { action: 1 }
@@ -78,7 +73,11 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
             },
 
             _setColumns : function(value){
-                localStorage.setItem('columns', value);
+                if (value < 0){
+                    localStorage.setItem('columns', 0);
+                } else {
+                    localStorage.setItem('columns', value);
+                }
             }
         })
     );

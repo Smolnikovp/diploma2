@@ -2,9 +2,19 @@
     height: 200px;
 }
 
-.editor > .button{
-    float: right;
-    width: 100px;
+.editor .button_add,
+.editor .button_remove{
+    position: absolute;
+    top: 0;
+    width: 80px;
     height: 50px;
-    font-size: 40px;
+    font-size: 26px;
+}
+
+.editor .button_remove{
+    right: 0;
+}
+
+.editor .button_add{
+    right: 80px;
 }
