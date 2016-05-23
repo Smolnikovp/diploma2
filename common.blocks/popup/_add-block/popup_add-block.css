@@ -1,26 +1,18 @@
-.popup_add-block .menu-item_hovered{
-    background-color: #00bfff;
-}
-
-.popup_add-block > .select .button{
-    border-radius: 0;
-    margin: 0;
-}
-
-.popup_add-block > .select .button_focused-hard{
+.popup_add-block .select .button_focused-hard{
+    background-color: lightblue;
     box-shadow: none;
 }
 
-.popup_add-block > .select .button:before{
+.popup_add-block .select .button:before{
     background-color: lightblue;
 }
 
-.popup_add-block > .select,
-.popup_add-block > .preview{
+.popup_add-block .select,
+.popup_add-block .preview{
     width: 200px;
 }
 
-.popup_add-block > .preview{
+.popup_add-block .preview{
     height: 300px;
     border-top: 1px solid #d3d3d3;
 }
@@ -35,6 +27,11 @@
     margin: 5px;
 }
 
-.popup_add-block > .button__cancel{
+.popup_add-block .button__cancel{
     float: right;
+}
+
+
+.popup_add-block .button_theme_islands.button_checked{
+    background-color: lightblue;
 }
