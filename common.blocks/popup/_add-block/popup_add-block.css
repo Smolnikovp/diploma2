@@ -9,11 +9,10 @@
 
 .popup_add-block .select,
 .popup_add-block .preview{
-    width: 200px;
+    width: 300px;
 }
 
 .popup_add-block .preview{
-    height: 300px;
     border-top: 1px solid #d3d3d3;
 }
 

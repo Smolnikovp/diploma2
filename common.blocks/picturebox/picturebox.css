@@ -18,3 +18,7 @@
     display: inline-block;
     color: #00bfff;
 }
+
+.picturebox .image{
+    width: 100%;
+}

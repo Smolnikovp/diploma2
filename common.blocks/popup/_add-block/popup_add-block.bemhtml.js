@@ -32,6 +32,27 @@ block('popup').mod('add-block', true)(
                         block: 'test-block',
                         content: 'test 1'
                     }
+                },
+                {
+                    val : 4,
+                    text : 'news-1',
+                    code : {
+                        block: 'news-1'
+                    }
+                },
+                {
+                    val : 5,
+                    text : 'news-2',
+                    code : {
+                        block: 'news-2'
+                    }
+                },
+                {
+                    val : 6,
+                    text : 'picturebox',
+                    code : {
+                        block: 'picturebox'
+                    }
                 }
             ]
             return [
