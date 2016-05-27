@@ -2,6 +2,7 @@
     mustDeps: [
         { block: 'link' },
         { elem: 'body' },
-        { elem: 'heading' }
+        { elem: 'heading' },
+        { block: 'input' }
     ]
 })

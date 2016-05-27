@@ -113,7 +113,7 @@ modules.define('column', ['i-bem__dom', 'jquery', 'page'], function(provide, BEM
 
                 var popup = this.__self._popup.bem('popup');
 
-                popup.setPosition(window.innerWidth/2.3, window.innerHeight/5);
+                popup.setPosition();
 
                 popup.setMod('visible', true);
 

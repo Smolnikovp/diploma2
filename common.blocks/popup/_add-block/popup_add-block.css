@@ -1,3 +1,11 @@
+.popup_add-block{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: none;
+}
+
 .popup_add-block .select .button_focused-hard{
     background-color: lightblue;
     box-shadow: none;

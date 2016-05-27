@@ -12,9 +12,8 @@ block('news-1')(
                     elem: 'body',
                     content: [
                         {
-                            block: 'link',
-                            content: '1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus nunc neque, eget mattis risus sollicitudin eu.',
-                            url: '=text'
+                            block: 'input',
+                            placeholder: 'Введите текст'
                         },
                         {
                             block: 'link',
