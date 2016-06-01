@@ -5,19 +5,6 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
             onSetMod: {
                 js: {
                     inited : function () {
-
-                        //BEMDOM.update(this.domElem,
-                        //    BEMHTML.apply(
-                        //        [
-                        //            {
-                        //                block: 'column',
-                        //                js: {id: 0},
-                        //                content: []
-                        //            }
-                        //        ]
-                        //    )
-                        //);
-
                         this.__self.renderColumns(this.domElem);
                     }
                 }
@@ -42,7 +29,6 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
             renderColumns: function(content){
                 var bemhtml = [],
                     value = this._getColumns();
-
 
                 for (var i = 0; i <= value; i++){
                         bemhtml.push({ block: 'column',  js: { id : i } })
@@ -81,5 +67,4 @@ modules.define('editor', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) 
             }
         })
     );
-
 });

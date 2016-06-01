@@ -22,6 +22,10 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                                 if(option && option.code){
                                     _this.domElem.trigger('close', option.code);
                                 }
+
+                                var edit = _this.findBlocksInside('edit-input'),
+                                    input = edit.findBlocksInside('input');
+                                console.log(input.getVal());
                                 _this.setMod('visible', false);
                             });
 
@@ -37,7 +41,6 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                             });
                         }
                     },
-
                     visible : {
                         '' : function(){
                             this.__base.apply(this, arguments);

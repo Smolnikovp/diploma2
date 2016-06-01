@@ -1,4 +1,4 @@
-.news-1{
+.news-1_edit{
     border: 1px solid #00bfff;
     font-size: 16px;
     margin: 20px 0;
@@ -6,12 +6,12 @@
     text-align: justify;
 }
 
-.news-1 h2{
+.news-1_edit h2{
     margin: 0 0 15px 15px;
     color: #0000FF;
 }
 
-.news-1 .link{
+.news-1_edit .link{
     cursor: pointer;
     display: block;
     color: #6e6e6e;
@@ -19,6 +19,6 @@
     margin-bottom: 5px;
 }
 
-.news-1 .link_hovered{
+.news-1_edit .link_hovered{
     color: #00bfff;
 }

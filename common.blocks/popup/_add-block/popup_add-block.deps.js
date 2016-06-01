@@ -7,6 +7,7 @@
         { block: 'button', mods: { cancel: true }},
         { block: 'preview' },
         { block: 'news-1' },
+        { block: 'news-1', mods: { edit: true } },
         { block: 'news-2' },
         { block: 'picturebox' }
     ]

@@ -37,7 +37,8 @@ block('popup').mod('add-block', true)(
                     val : 4,
                     text : 'news-1',
                     code : {
-                        block: 'news-1'
+                        block: 'news-1',
+                        mods: { edit : true }
                     }
                 },
                 {

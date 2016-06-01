@@ -1,4 +1,4 @@
-block('news-1')(
+block('news-1').mod('edit', true)(
     js()(true),
     elem('heading')(tag()('h2')),
     content()(
@@ -12,12 +12,7 @@ block('news-1')(
                     elem: 'body',
                     content: [
                         {
-                            block: 'link',
-                            content: '2'
-                        },
-                        {
-                            block: 'link',
-                            content: '2'
+                            block: 'edit-input'
                         }
                     ]
                 }
