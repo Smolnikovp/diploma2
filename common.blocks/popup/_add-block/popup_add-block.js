@@ -18,14 +18,30 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                             });
 
                             button_ok.bindTo('pointerclick', function () {
-                                var option = select.params.options[select.getVal() - 1];
+                                var option = select.params.options[select.getVal() - 1],
+                                    edit_input = _this.findBlocksInside('edit-input');
+
+                                for(var i = 0; i < edit_input.length; i++){
+                                    edit_input[i].getData();
+                                }
+
+                                if (option.code.mods.edit == true){
+                                    edit_input.forEach(function(){
+                                        BEMDOM.update(
+                                            _this.findBlockInside('news-1_edit').domElem,
+                                            BEMHTML.apply({
+                                                block: 'link',
+                                                content: edit_input
+                                            })
+                                        )
+                                    })
+                                    option.code.mods.edit = false;
+                                }
+
                                 if(option && option.code){
                                     _this.domElem.trigger('close', option.code);
                                 }
 
-                                var edit = _this.findBlocksInside('edit-input'),
-                                    input = edit.findBlocksInside('input');
-                                console.log(input.getVal());
                                 _this.setMod('visible', false);
                             });
 

@@ -12,7 +12,12 @@ block('news-1').mod('edit', true)(
                     elem: 'body',
                     content: [
                         {
-                            block: 'edit-input'
+                            block: 'edit-input',
+                            field: 'title'
+                        },
+                        {
+                            block: 'edit-input',
+                            field: 'title'
                         }
                     ]
                 }

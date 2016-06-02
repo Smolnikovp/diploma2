@@ -1,11 +1,12 @@
 block('edit-input')(
-    js()(true),
+    js()(function(){
+        return {
+            field: this.ctx.field
+        }
+    }),
     content()(
-        function(){
-            return {
-                block: 'input',
-                field : ''
-            }
+        {
+            block: 'input'
         }
     )
 )
