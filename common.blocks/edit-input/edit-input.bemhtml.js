@@ -1,12 +1,14 @@
 block('edit-input')(
     js()(function(){
         return {
-            field: this.ctx.field
+            field: this.ctx.field,
+            maxLength: this.ctx.maxLength
         }
     }),
     content()(
         {
-            block: 'input'
+            block: 'input',
+            placeholder: 'Введите текст'
         }
     )
 )

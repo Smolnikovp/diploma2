@@ -1,24 +1,71 @@
 .news-1{
-    border: 1px solid #00bfff;
     font-size: 16px;
-    margin: 20px 0;
-    padding: 10px 20px;
+    color: #fff;
+    margin: 10px 0;
+    padding: 0 20px;
     text-align: justify;
+    background-color: #00bfff;
+    font-family: Arial, serif;
 }
 
-.news-1 h2{
-    margin: 0 0 15px 15px;
-    color: #0000FF;
+.news-1 .input__control{
+    color: #fff;
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    outline: none;
 }
 
-.news-1 .link{
-    cursor: pointer;
+.news-1 .input__control:hover,
+.news-1 .input__control:focus{
+    background-color: #00aaff;
+}
+
+.news-1 .input__control::-webkit-input-placeholder{
+    color: #fff;
+}
+
+.news-1__heading{
+    padding-top: 5px;
+    margin: 0 0 5px 0;
+}
+
+.news-1__heading .text{
+    margin-left: 10px;
+}
+
+.news-1__body .link,
+.news-1__body .input__control,
+.news-1__body .text,
+.news-1__heading .input__control{
+    margin: 5px 0;
+}
+
+.news-1__body .link,
+.news-1__heading .text,
+.news-1__heading .input__control{
     display: block;
-    color: #6e6e6e;
-    text-decoration: none;
+}
+
+.news-1__heading .text,
+.news-1__heading .input__control{
+    font-size: 24px;
+}
+
+.news-1__body .link,
+.news-1__body .input__control,
+.news-1__body .text{
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.news-1__body .link{
+    cursor: pointer;
+    text-decoration: underline;
     margin-bottom: 5px;
 }
 
-.news-1 .link_hovered{
-    color: #00bfff;
+.news-1__body .link_hovered{
+    color: #d3d3d3;
 }

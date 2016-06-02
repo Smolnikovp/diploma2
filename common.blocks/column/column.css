@@ -11,14 +11,14 @@
 .column__remove-button{
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     border: none;
-    width: 10px;
-    height: 10px;
-    line-height: 10px;
-    font-size: 10px;
+    width: 20px;
+    height: 20px;
     padding: 0;
+    background-color: #fff;
 }
+
 
 .column__add-button{
     border: none;

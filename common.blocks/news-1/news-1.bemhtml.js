@@ -6,18 +6,22 @@ block('news-1')(
             return [
                 {
                     elem: 'heading',
-                    content: 'Новости'
+                    content: {
+                        block: 'text',
+                        content: this.ctx.heading
+                    }
                 },
                 {
                     elem: 'body',
                     content: [
                         {
-                            block: 'link',
-                            content: '2'
+                            block: 'text',
+                            content: this.ctx.title
                         },
                         {
                             block: 'link',
-                            content: '2'
+                            url: this.ctx.description,
+                            content: this.ctx.description
                         }
                     ]
                 }

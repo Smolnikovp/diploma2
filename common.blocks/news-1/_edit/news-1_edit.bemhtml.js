@@ -6,18 +6,23 @@ block('news-1').mod('edit', true)(
             return [
                 {
                     elem: 'heading',
-                    content: 'Новости'
+                    content: {
+                        block: 'edit-input',
+                        field: 'heading'
+                    }
                 },
                 {
                     elem: 'body',
                     content: [
                         {
                             block: 'edit-input',
-                            field: 'title'
+                            field: 'title',
+                            maxLength: 550
                         },
                         {
                             block: 'edit-input',
-                            field: 'title'
+                            field: 'description',
+                            maxLength: 550
                         }
                     ]
                 }

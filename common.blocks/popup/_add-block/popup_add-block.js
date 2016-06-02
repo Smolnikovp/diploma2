@@ -18,27 +18,16 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                             });
 
                             button_ok.bindTo('pointerclick', function () {
-                                var option = select.params.options[select.getVal() - 1],
-                                    edit_input = _this.findBlocksInside('edit-input');
-
-                                for(var i = 0; i < edit_input.length; i++){
-                                    edit_input[i].getData();
-                                }
-
-                                if (option.code.mods.edit == true){
-                                    edit_input.forEach(function(){
-                                        BEMDOM.update(
-                                            _this.findBlockInside('news-1_edit').domElem,
-                                            BEMHTML.apply({
-                                                block: 'link',
-                                                content: edit_input
-                                            })
-                                        )
-                                    })
-                                    option.code.mods.edit = false;
-                                }
+                                var option = select.params.options[select.getVal() - 1];
 
                                 if(option && option.code){
+                                    _this.findBlocksInside('edit-input').map(function(input){
+                                        var data = input.getData();
+                                        option.code[data[0]] = data[1];
+                                    });
+
+                                    option.code.mods.edit = false;
+
                                     _this.domElem.trigger('close', option.code);
                                 }
 
@@ -49,6 +38,9 @@ modules.define('popup', ['i-bem__dom'], function(provide, BEMDOM, Popup) {
                                 var option = this.params.options[this.getVal() - 1];
 
                                 if(option && option.code){
+                                    option.code.mods = option.code.mods || {};
+                                    option.code.mods.edit = true;
+
                                     BEMDOM.update(
                                         _this.findBlockInside('preview').domElem,
                                         BEMHTML.apply(option.code)
