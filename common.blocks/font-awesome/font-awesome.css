@@ -225,3 +225,7 @@
 *[class*='tablez']:before{
     content: "\f0ce";
 }
+
+*[class*='minus']:before{
+    content: "\f068";
+}

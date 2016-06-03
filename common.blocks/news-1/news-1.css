@@ -1,24 +1,33 @@
+.news-1 > *{
+    margin: 0;
+}
+
 .news-1{
-    font-size: 16px;
-    color: #fff;
-    margin: 10px 0;
-    padding: 0 20px;
-    text-align: justify;
-    background-color: #00bfff;
-    font-family: Arial, serif;
+    padding: 10px;
+    font-family: Calibri;
 }
 
 .news-1 .input__control{
-    color: #fff;
     width: 100%;
+    background: inherit;
     border: none;
-    background-color: inherit;
     outline: none;
+    color: #fff;
 }
 
-.news-1 .input__control:hover,
-.news-1 .input__control:focus{
+.news-1__heading .input__control:hover,
+.news-1__heading .input__control:focus{
     background-color: #00aaff;
+}
+
+.news-1__body .input__control:hover,
+.news-1__body .input__control:focus{
+    background-color: grey;
+}
+
+.news-1__heading .input__control,
+.news-1__heading{
+    font-size: 24px;
 }
 
 .news-1 .input__control::-webkit-input-placeholder{
@@ -26,46 +35,31 @@
 }
 
 .news-1__heading{
-    padding-top: 5px;
-    margin: 0 0 5px 0;
-}
-
-.news-1__heading .text{
-    margin-left: 10px;
-}
-
-.news-1__body .link,
-.news-1__body .input__control,
-.news-1__body .text,
-.news-1__heading .input__control{
-    margin: 5px 0;
-}
-
-.news-1__body .link,
-.news-1__heading .text,
-.news-1__heading .input__control{
-    display: block;
-}
-
-.news-1__heading .text,
-.news-1__heading .input__control{
-    font-size: 24px;
-}
-
-.news-1__body .link,
-.news-1__body .input__control,
-.news-1__body .text{
-    font-size: 16px;
+    padding: 5px 10px 10px 10px;
+    background: linear-gradient(to bottom, #00bfff, #a4a4a4);
     color: #fff;
-    padding: 5px 0;
+}
+
+.news-1__body > *{
+    display: block;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #a4a4a4;
+}
+
+.news-1__body > *,
+.news-1__body .input__control{
+    font-size: 18px;
+}
+
+.news-1__body span{
+    word-wrap: break-word;
 }
 
 .news-1__body .link{
-    cursor: pointer;
-    text-decoration: underline;
-    margin-bottom: 5px;
+    border-top: 1px solid #fff;
 }
 
-.news-1__body .link_hovered{
-    color: #d3d3d3;
+.news-1__body .link:hover{
+    color: #008dbd;
 }

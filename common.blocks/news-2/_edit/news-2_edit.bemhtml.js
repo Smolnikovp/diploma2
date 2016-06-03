@@ -1,4 +1,4 @@
-block('news-2')(
+block('news-2').mod('edit', true)(
     js()(true),
     elem('heading')(tag()('h2')),
     content()(
@@ -7,21 +7,22 @@ block('news-2')(
                 {
                     elem: 'heading',
                     content: {
-                        block: 'text',
-                        content: this.ctx.heading
+                        block: 'edit-input',
+                        field: 'heading'
                     }
                 },
                 {
                     elem: 'body',
                     content: [
                         {
-                            block: 'text',
-                            content: this.ctx.title
+                            block: 'edit-input',
+                            field: 'title',
+                            maxLength: 550
                         },
                         {
-                            block: 'link',
-                            url: this.ctx.description,
-                            content: this.ctx.description
+                            block: 'edit-input',
+                            field: 'description',
+                            maxLength: 100
                         }
                     ]
                 }

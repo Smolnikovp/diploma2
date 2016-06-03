@@ -1,12 +1,21 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
 .editor{
-    height: 200px;
+    height: 900px;
+    background-color: #232323;
 }
 
 .editor .button_add,
 .editor .button_remove{
+    background-color: #a4a4a4;
     position: absolute;
+    outline: none;
+    border: none;
     top: 0;
-    width: 80px;
+    width: 70px;
     height: 50px;
     font-size: 26px;
 }
@@ -16,5 +25,11 @@
 }
 
 .editor .button_add{
-    right: 80px;
+    right: 75px;
+}
+
+.editor .button_add.button_hovered,
+.editor .button_remove.button_hovered{
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 1);
+    cursor: pointer;
 }

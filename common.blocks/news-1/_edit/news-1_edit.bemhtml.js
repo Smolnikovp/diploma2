@@ -22,7 +22,7 @@ block('news-1').mod('edit', true)(
                         {
                             block: 'edit-input',
                             field: 'description',
-                            maxLength: 550
+                            maxLength: 100
                         }
                     ]
                 }

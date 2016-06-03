@@ -9,23 +9,51 @@
 }
 
 .column__remove-button{
+    outline: none;
     position: absolute;
-    top: 0;
-    right: 10px;
-    border: none;
-    width: 20px;
-    height: 20px;
+    top: 15px;
+    right: 15px;
+    border-radius: 100%;
+    border: 3px solid #fff;
+    width: 17px;
+    height: 17px;
     padding: 0;
-    background-color: #fff;
+    background-color: inherit;
 }
 
+.column__remove-button .button__text{
+    font-size: 22px;
+    line-height: 8px;
+}
+
+.column__remove-button:hover,
+.column__remove-button:hover .button__text
+{
+    cursor: pointer;
+    border-color: #d7d7d7;
+    color: #d7d7d7;
+}
+
+.column__add-button:hover,
+.column__add-button:hover .button__text{
+    cursor: pointer;
+    border-color: #d7d704;
+    color: #d7d704;
+}
+
+.column__remove-button .button__text,
+.column__add-button .button__text {
+    color: #fff;
+}
 
 .column__add-button{
-    border: none;
+    outline: none;
+    border: 1px solid #fff;
+    background-color: inherit;
     width: 100%;
-    height: 10px;
+    height: 15px;
     line-height: 10px;
-    font-size: 10px;
+    font-size: 19px;
     padding: 0;
 }
 

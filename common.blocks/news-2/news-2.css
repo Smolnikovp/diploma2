@@ -1,12 +1,27 @@
-.news-2 h2{
+.news-2{
+    font-family: Centaur;
+}
+
+.news-2__heading .input__control,
+.news-2__heading{
+    font-size: 26px;
+}
+
+.news-2__heading{
     padding: 10px 20px;
     margin: 0;
     color: #003ccc;
-    background: linear-gradient(to bottom, #f0f0f0, #888888);
+    background: linear-gradient(to top, #f0f0f0, #888888);
 }
 
 .news-2__body{
-    border: 1px solid #a7a7a7;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+}
+
+.news-2__body .input__control,
+.news-2__body > *{
+    font-size: 18px;
 }
 
 .news-2__body .link{
@@ -20,11 +35,24 @@
     color: #00bfff;
 }
 
-.news-2__body .row{
-    padding: 5px 20px;
-    border-bottom: 1px dashed #a7a7a7;
+.news-2 .input__control{
+    margin-bottom: 5px;
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    outline: none;
 }
 
-.news-2__body .row:last-child{
-    border: none;
+.news-2 .input__control::-webkit-input-placeholder{
+    color: #000;
+}
+
+.news-2__heading .input__control:hover,
+.news-2__heading .input__control:focus{
+    background-color: #b2b2b2;
+}
+
+.news-2__body .input__control:hover,
+.news-2__body .input__control:focus{
+    background-color: #dfdfdf;
 }

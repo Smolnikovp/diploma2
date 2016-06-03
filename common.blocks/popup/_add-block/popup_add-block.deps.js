@@ -9,6 +9,7 @@
         { block: 'news-1' },
         { block: 'news-1', mods: { edit: true } },
         { block: 'news-2' },
+        { block: 'news-2', mods: { edit: true } },
         { block: 'picturebox' }
     ]
 })
